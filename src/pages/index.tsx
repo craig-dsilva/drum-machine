@@ -1,7 +1,8 @@
-import Head from 'next/head'
-import styles from '@/styles/Home.module.css'
+import Head from "next/head";
+import DrumPadContainer from "../components/DrumPadContainer";
+import styles from "@/styles/Home.module.css";
 
-export default function Home() {
+const Home = () => {
   return (
     <>
       <Head>
@@ -9,8 +10,10 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.main}>
-        
+        <DrumPadContainer />
       </main>
     </>
-  )
-}
+  );
+};
+
+export default Home;
