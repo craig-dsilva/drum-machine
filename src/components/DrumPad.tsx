@@ -21,7 +21,10 @@ const DrumPad: React.FC<DrumPadInterface> = ({
   };
 
   return (
-    <div className="drum-pad" onClick={playAudio}>
+    <div
+      className="drum-pad"
+      onClick={playAudio}
+    >
       {name}
       <audio
         ref={drumAudio as React.RefObject<HTMLAudioElement>}

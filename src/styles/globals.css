@@ -1,0 +1,23 @@
+.main {
+  text-align: center;
+  display: flex;
+  justify-content: space-between;
+  margin: 25% 1rem 0;
+  background-color: #4343ff;
+  color: #fff;
+}
+
+.drum-pad-container {
+  width: 50%;
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+
+}
+
+.controls {
+    width: 50%;
+}
+
+.drum-pad {
+    padding: 1.5rem;
+}

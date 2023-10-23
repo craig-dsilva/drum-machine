@@ -3,7 +3,7 @@ import DrumNameDisplay from "./DrumNameDisplay";
 
 const Controls: React.FC<any> = ({ drumName }) => {
   return (
-    <div>
+    <div className="controls">
       <DrumNameDisplay display={drumName} />
     </div>
   );

@@ -17,7 +17,7 @@ const DrumPadContainer: React.FC<DrumPadContainerInterface> = ({
   updateDrum,
 }) => {
   return (
-    <div>
+    <div className="drum-pad-container">
       {data.map((drumKey: DrumPadInterface) => {
         return (
           <DrumPad
