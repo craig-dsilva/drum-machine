@@ -1,13 +1,34 @@
-import React, { useEffect, useRef } from "react";
-import { DrumPadInterface } from "./DrumPadContainer";
+import React, { useRef } from "react";
 
-const DrumPad: React.FC<DrumPadInterface> = ({ name, audio }) => {
+interface DrumPadInterface {
+  name: string;
+  audio: string;
+  displayName: string;
+  updateDrum: (name: string) => void;
+}
+
+const DrumPad: React.FC<DrumPadInterface> = ({
+  name,
+  audio,
+  displayName,
+  updateDrum,
+}) => {
   const drumAudio = useRef<HTMLAudioElement>();
 
+  const playAudio = () => {
+    if (drumAudio.current) drumAudio.current.play();
+    updateDrum(displayName);
+  };
+
   return (
-    <div className="drum-pad" onClick={() => drumAudio.current.play()}>
+    <div className="drum-pad" onClick={playAudio}>
       {name}
-      <audio ref={drumAudio} className="clip" id={name} src={audio}></audio>
+      <audio
+        ref={drumAudio as React.RefObject<HTMLAudioElement>}
+        className="clip"
+        id={name}
+        src={audio}
+      ></audio>
     </div>
   );
 };

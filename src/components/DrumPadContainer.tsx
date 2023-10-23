@@ -1,21 +1,31 @@
 import React from "react";
 import DrumPad from "../components/DrumPad";
-import DrumPadData from "../data/drumPadData.json";
 
 export interface DrumPadInterface {
   name: string;
+  displayName: string;
   audio: string;
 }
 
-const DrumPadContainer = () => {
+interface DrumPadContainerInterface {
+  data: DrumPadInterface[];
+  updateDrum: (name: string) => void;
+}
+
+const DrumPadContainer: React.FC<DrumPadContainerInterface> = ({
+  data,
+  updateDrum,
+}) => {
   return (
     <div>
-      {DrumPadData.map((drumKey: DrumPadInterface) => {
+      {data.map((drumKey: DrumPadInterface) => {
         return (
           <DrumPad
             key={drumKey.name}
             name={drumKey.name}
             audio={drumKey.audio}
+            displayName={drumKey.displayName}
+            updateDrum={updateDrum}
           />
         );
       })}
