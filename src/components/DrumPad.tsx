@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 
 interface DrumPadInterface {
   name: string;
@@ -20,11 +20,14 @@ const DrumPad: React.FC<DrumPadInterface> = ({
     updateDrum(displayName);
   };
 
+  useEffect(() => {
+    document.addEventListener("keydown", (e) => {
+      if (e.key === name || e.key === name.toLowerCase()) playAudio();
+    });
+  }, []);
+
   return (
-    <div
-      className="drum-pad"
-      onClick={playAudio}
-    >
+    <div className="drum-pad" onClick={playAudio}>
       {name}
       <audio
         ref={drumAudio as React.RefObject<HTMLAudioElement>}
