@@ -1,5 +1,5 @@
 # Drum Machine
-This is a drum machine I built using React and TypeScript.
+This is a drum machine I built using React and TypeScript. The drum audio is played when the key is pressed using the mouse or the keyboard.
 
 ### Features
 - Fully functional
