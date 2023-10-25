@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 
 interface DrumPadInterface {
   name: string;
@@ -13,11 +13,14 @@ const DrumPad: React.FC<DrumPadInterface> = ({
   displayName,
   updateDrum,
 }) => {
+  const [isClicked, setIsClicked] = useState(false);
   const drumAudio = useRef<HTMLAudioElement>();
 
   const playAudio = () => {
     if (drumAudio.current) drumAudio.current.play();
+    setIsClicked(true)
     updateDrum(displayName);
+    setTimeout(() => setIsClicked(false), 200)
   };
 
   useEffect(() => {
@@ -27,7 +30,10 @@ const DrumPad: React.FC<DrumPadInterface> = ({
   }, []);
 
   return (
-    <div className="drum-pad" onClick={playAudio}>
+    <div
+      className={isClicked ? "drum-pad clicked" : "drum-pad"}
+      onClick={playAudio}
+    >
       {name}
       <audio
         ref={drumAudio as React.RefObject<HTMLAudioElement>}

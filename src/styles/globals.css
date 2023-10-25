@@ -1,23 +1,39 @@
+body {
+  background-color: #626262;
+  font-size: 2rem;
+}
+
 .main {
   text-align: center;
   display: flex;
   justify-content: space-between;
-  margin: 25% 1rem 0;
-  background-color: #4343ff;
-  color: #fff;
+  margin: 30vh 15vw;
+  background-color: #e1ffad;
+  color: #2f2f2f;
+  padding: 2rem;
 }
 
 .drum-pad-container {
   width: 50%;
   display: grid;
   grid-template-columns: repeat(3, auto);
-
+  grid-gap: 0.5em;
 }
 
 .controls {
-    width: 50%;
+  width: 50%;
 }
 
 .drum-pad {
-    padding: 1.5rem;
+  padding: 1.5rem;
+  background-color: #ecfa91;
+}
+
+.clicked {
+  color: #fff;
+  background-color: #000;
+}
+
+#display {
+  margin-top: 13vh;
 }
