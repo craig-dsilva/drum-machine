@@ -13,7 +13,7 @@ const Home = () => {
     <>
       <Head>
         <title>Drum Machine</title>
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/drum.svg" />
       </Head>
       <main className="main">
         <DrumPadContainer data={DrumPadData} updateDrum={updateDrum} />
